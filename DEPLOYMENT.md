@@ -1,66 +1,62 @@
-# Deployment Guide
+# Deployment Guide (Offline + Future Cloud)
 
-## ☁️ Cloud Setup (AWS)
+## 🖥️ Local Deployment (Primary)
 
-### 1. Create Services
+### Step 1: Install Docker
 
-* EC2 (Backend)
-* RDS (PostgreSQL)
-* S3 (Storage)
-* CloudFront (CDN)
+Download Docker Desktop
 
 ---
 
-### 2. Backend Deployment
+### Step 2: Run Application
 
 ```bash
-docker build -t roc-backend .
-docker run -d -p 5000:5000 roc-backend
+docker-compose up -d
 ```
 
 ---
 
-### 3. Frontend Deployment
+### Step 3: Access System
 
-* Use Vercel or AWS Amplify
-
----
-
-### 4. Database Setup
-
-* Create RDS instance
-* Configure security groups
+```
+http://<SERVER-IP>:3000
+```
 
 ---
 
-### 5. Environment Variables
+### Step 4: Configure Firewall
 
-Set in AWS:
-
-* DB_URI
-* JWT_SECRET
-* API keys
+* Allow port 3000
+* Allow PostgreSQL port (if needed)
 
 ---
 
-### 6. CI/CD Pipeline
+## ☁️ Future Cloud Deployment (AWS)
 
-* GitHub Actions:
+### Services Required
 
-  * Build
-  * Test
-  * Deploy
-
----
-
-### 7. Domain Setup
-
-* Route53 / GoDaddy
-* SSL via AWS Certificate Manager
+* EC2 (Backend)
+* RDS (PostgreSQL)
+* S3 (Storage)
 
 ---
 
-## 📌 Monitoring
+### Steps
 
-* CloudWatch logs
-* Error tracking (Sentry)
+1. Deploy backend on EC2
+2. Migrate DB to RDS
+3. Move storage to S3
+4. Configure domain + SSL
+
+---
+
+## 📌 Backup Strategy
+
+* Daily DB backup
+* File storage backup
+
+---
+
+## 📌 Notes
+
+* Keep same architecture → easy migration
