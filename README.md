@@ -1,98 +1,103 @@
-# ROC
-
-# ROC Compliance SaaS
+# ROC Compliance Software (Offline + LAN Based)
 
 ## 📌 Overview
 
-ROC Compliance SaaS is a web-based platform designed for Chartered Accountants and Company Secretaries to manage corporate compliance efficiently.
+This is an **offline-first ROC Compliance Management Software** designed for Chartered Accountants and professionals.
 
-The system helps in:
+The system runs on a **local server (within office LAN)** and allows multiple users to access it through browser.
 
-* Managing companies, directors, and shareholders
-* Tracking compliance deadlines (ROC filings, AGM, etc.)
-* Generating resolutions, minutes, and forms
-* Managing workflows (maker-checker)
-* Digital signing (DSC/eSign)
-* AI-based drafting of documents
+---
+
+## 🎯 Key Features
+
+* Client & Company Management
+* Compliance Calendar & Tracking
+* Board Resolution Generator
+* Minutes & Registers Management
+* Multi-user workflow (LAN based)
+* Document storage (local server)
+* Audit logs
+
+---
+
+## 🏗️ Architecture Type
+
+* Offline-first (LAN-based)
+* Centralized server system
+* Browser-based access
 
 ---
 
 ## 🚀 Tech Stack
 
-* Frontend: React / Next.js
+* Frontend: React
 * Backend: Node.js (Express)
 * Database: PostgreSQL
-* Cloud: AWS
-* AI: OpenAI API
-* Storage: AWS S3
+* Deployment: Docker (local server)
 
 ---
 
 ## ⚙️ Setup Instructions
 
-### 1. Clone Repository
+### 1. Install Prerequisites
+
+* Docker Desktop (Recommended)
+* OR Node.js + PostgreSQL
+
+---
+
+### 2. Clone Repository
 
 ```bash
 git clone https://github.com/your-repo/roc-compliance.git
 cd roc-compliance
 ```
 
-### 2. Backend Setup
+---
+
+### 3. Run using Docker
 
 ```bash
-cd backend
-npm install
-cp .env.example .env
-npm run dev
-```
-
-### 3. Frontend Setup
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-### 4. Database Setup
-
-* Install PostgreSQL
-* Create database: `roc_compliance`
-* Run migrations:
-
-```bash
-npm run migrate
+docker-compose up -d
 ```
 
 ---
 
-## 🔐 Environment Variables
+### 4. Access Application
 
-Create `.env` file:
+From any system in LAN:
 
+```bash
+http://<SERVER-IP>:3000
 ```
-DB_URI=postgresql://user:password@localhost:5432/roc_compliance
-JWT_SECRET=your_secret
-OPENAI_API_KEY=your_key
-AWS_ACCESS_KEY=xxx
-AWS_SECRET=xxx
+
+Example:
+
+```bash
+http://192.168.1.10:3000
 ```
 
 ---
 
-## 📦 Features (MVP)
+## 🔐 Default Login
 
-* Company Management
-* Compliance Calendar
-* Document Storage
-* Basic Registers
-* User Roles
+* Email: [admin@local.com](mailto:admin@local.com)
+* Password: Admin123
 
 ---
 
-## 📌 Future Scope
+## 📁 Storage
 
-* E-form automation
-* AI drafting
+All documents are stored locally in:
+
+```
+/storage/
+```
+
+---
+
+## 📌 Future Upgrade
+
+* Cloud deployment (AWS)
+* AI-based drafting
 * DSC integration
-* Analytics dashboard
