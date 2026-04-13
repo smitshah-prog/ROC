@@ -1,66 +1,55 @@
-# System Architecture
+# System Architecture (Offline + LAN)
 
 ## 📌 High-Level Architecture
 
 ```
-[ User Browser ]
-        |
-        v
-[ React Frontend ]
-        |
-        v
-[ Node.js Backend API ]
-        |
-        +-------------------+
-        |                   |
-        v                   v
-[ PostgreSQL DB ]     [ External APIs ]
-                      - OpenAI
-                      - DSC/eSign
-                      - Email/SMS
+[ User PC 1 ]       \
+[ User PC 2 ]        --> Browser --> http://SERVER-IP:3000
+[ User PC 3 ]       /
+
+                ↓
+        [ Local Server Machine ]
+        ├── Backend (Node.js API)
+        ├── Frontend (React build)
+        ├── PostgreSQL Database
+        └── File Storage (/storage)
 ```
 
 ---
 
 ## 🧠 Architecture Explanation
 
-### Frontend
+### 1. Local Server
 
-* Handles UI/UX
-* Communicates via REST API
+* Hosts backend + database
+* Acts as central system
 
-### Backend
+### 2. Client Systems
 
-* Business logic
-* Authentication
-* Compliance engine
+* Access via browser
+* No installation required
 
-### Database
+### 3. Communication
 
-* Stores structured data
-* JSON fields for flexible forms
-
-### External Integrations
-
-* AI for drafting
-* DSC for signing
+* HTTP over LAN network
+* No internet dependency
 
 ---
 
 ## ⚙️ Tech Stack Rationale
 
-| Layer    | Technology | Reason            |
-| -------- | ---------- | ----------------- |
-| Frontend | React      | Fast, scalable UI |
-| Backend  | Node.js    | High performance  |
-| Database | PostgreSQL | Reliable & secure |
-| Cloud    | AWS        | Scalable          |
-| AI       | OpenAI     | Best LLM          |
+| Layer      | Tech       | Reason     |
+| ---------- | ---------- | ---------- |
+| Frontend   | React      | Fast UI    |
+| Backend    | Node.js    | Scalable   |
+| Database   | PostgreSQL | Reliable   |
+| Deployment | Docker     | Easy setup |
 
 ---
 
 ## 📌 Design Principles
 
-* Modular architecture
-* API-first design
-* Scalable & secure
+* Offline-first
+* Multi-user support
+* Centralized data
+* Future cloud-ready
