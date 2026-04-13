@@ -1,57 +1,53 @@
 # Contributing Guidelines
 
-## 📌 How to Contribute
+## 📌 Contribution Flow
 
 1. Fork the repository
-2. Create a new branch:
+2. Create a feature branch:
 
 ```bash
-git checkout -b feature/new-feature
+git checkout -b feature/module-name
 ```
 
 3. Make changes
 4. Commit:
 
 ```bash
-git commit -m "Added new feature"
+git commit -m "Added feature"
 ```
 
-5. Push:
-
-```bash
-git push origin feature/new-feature
-```
-
-6. Create Pull Request
+5. Push and create Pull Request
 
 ---
 
 ## 🧑‍💻 Code Standards
 
-* Use **TypeScript**
-* Follow **MVC structure**
-* Write clean and readable code
-* Use meaningful variable names
-* Follow ESLint rules
+* Use TypeScript (preferred)
+* Follow MVC architecture
+* Write reusable services
+* Keep business logic in backend
+* Avoid hardcoding values
 
 ---
 
-## 🧪 Testing
+## 🧪 Testing Rules
 
-* Write unit tests for all APIs
-* Ensure no breaking changes
-
----
-
-## 🔍 Review Process
-
-* Code will be reviewed before merging
-* Must pass CI/CD checks
+* Write unit tests for APIs
+* Validate all edge cases
+* No breaking changes allowed
 
 ---
 
-## 📌 Branch Naming
+## 📌 Naming Conventions
 
-* feature/*
-* bugfix/*
-* hotfix/*
+* camelCase for variables
+* PascalCase for components
+* snake_case for DB tables
+
+---
+
+## 🔍 Review Checklist
+
+* Code readability
+* Security checks
+* Performance impact
